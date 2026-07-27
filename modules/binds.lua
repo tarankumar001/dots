@@ -30,7 +30,11 @@ hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 -- hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 -- hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
 -- hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
-
+-- ─── Resize active window ──────────────────────────────────────────────────
+hl.bind("SUPER + code:20",         hl.dsp.window.resize({ x = -50, y = 0, relative = true }), { repeating = true, description = "Shrink width" })
+hl.bind("SUPER + code:21",         hl.dsp.window.resize({ x =  50, y = 0, relative = true }), { repeating = true, description = "Expand width" })
+hl.bind("SUPER + SHIFT + code:20", hl.dsp.window.resize({ x = 0, y = -50, relative = true }), { repeating = true, description = "Shrink height" })
+hl.bind("SUPER + SHIFT + code:21", hl.dsp.window.resize({ x = 0, y =  50, relative = true }), { repeating = true, description = "Expand height" })
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do

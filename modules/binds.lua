@@ -87,6 +87,7 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("sleep 1 && systemctl suspend"))
-
+hl.bind("SUPER + W",
+    hl.dsp.exec_cmd("/home/t10nat/.config/rofi/scripts/wallpaper.sh"))
 hl.bind("SUPER + Y",
     hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))

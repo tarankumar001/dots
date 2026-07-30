@@ -15,7 +15,7 @@ hl.on("hyprland.start", function()
     -- Wallpaper daemon
     hl.exec_cmd("awww-daemon")
 
-    hl.exec_once("hypridle")
+    hl.exec_cmd("hypridle")
 
     -- Clipboard history
     hl.exec_cmd("wl-paste --type text --watch cliphist store")

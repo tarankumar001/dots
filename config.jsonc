@@ -1,0 +1,166 @@
+{
+    "modules-left": [
+        
+        "hyprland/workspaces",
+        "hyprland/window"
+
+    ],
+
+    "modules-center": [],
+
+    "modules-right": [
+        "tray",
+        "custom/media",
+        // "mpris",
+        "custom/sep",
+        "network",
+        "custom/sep",
+        "bluetooth",
+        "custom/sep",
+    "custom/weather",
+        "custom/sep",
+        "battery",
+        "custom/sep",
+        "backlight",
+        "custom/sep",
+        "pulseaudio",
+        "custom/sep",
+        "clock"
+    ],
+
+    "custom/sep": {
+        "format": "❘",
+        "tooltip": false
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{name}",
+        "cursor": true
+    },
+
+    "bluetooth": {
+        "format": "{icon}",
+        "format-disabled": "󰂲",
+        "format-on": "󰂯",
+        "format-connected": "󰂱",
+        "tooltip": true,
+        "on-click": "blueman-manager & sleep 1 && pkill blueman-tray"
+    },
+
+    "network": {
+        "format-wifi": "{icon}",
+        "format-icons": [
+            "󰤯",
+            "󰤟",
+            "󰤢",
+            "󰤥",
+            "󰤨"
+        ],
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤭",
+        "tooltip": true,
+        "tooltip-format": "{essid}\n{signalStrength}% ({frequency} MHz)",
+        "on-click": "nm-connection-editor"
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{icon} {capacity}%",
+        "format-full": "{icon}{capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-alt": "{icon}{capacity}%",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "tooltip-format": "{time}",
+        "interval": 30
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": [
+            "",
+            ""
+        ]
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": " {volume}%",
+        "format-bluetooth": "󰂯 {volume}%",
+        "format-bluetooth-muted": " {volume}%",
+        "format-icons": {
+            "headphone": "",
+            "headset": "",
+            "default": [
+                ""
+            ]
+        },
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    },
+
+    "tray": {
+        "icon-size": 15.9,
+        "spacing": 6,
+        "cursor": true
+    },
+
+    "clock": {
+        "format": "{:%a %d %b • %I:%M %p}",
+        "tooltip-format": "<big>{:%A, %d %B %Y}</big>\n<tt>{calendar}</tt>",
+        "calendar": {
+            "mode": "month"
+        },
+        "on-click": "swaync-client -t -sw"
+    },
+
+"mpris": {
+    "format": "{player_icon} {dynamic}",
+    "format-paused": " {dynamic}",
+    "format-stopped": "",
+    "dynamic-len": 40,
+    "player-icons": {
+        "default": "",
+        "spotify": "",
+        "firefox": "󰈹",
+        "chromium": "",
+        "mpv": "",
+        "vlc": "󰕼"
+    },
+    "tooltip": true,
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "on-click-middle": "playerctl previous"
+},
+"custom/media": {
+    "exec": "~/.config/waybar/scripts/media.sh",
+    "interval": 1,
+    "return-type": "text",
+    "tooltip": false,
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "on-click-middle": "playerctl previous"
+},
+"hyprland/window": {
+    "format": "{class}",
+    "separate-outputs": true
+},
+"custom/weather": {
+    "class": "weather",
+    "exec": "curl -s 'wttr.in/Jizzakh?format=%c%t' | sed 's/+//'",
+    "format": "{}",
+    "interval": 300
+},
+}

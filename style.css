@@ -1,59 +1,120 @@
+@import url("/home/t10nat/.cache/wal/colors-waybar.css");
+
 * {
-    background-image: none;
-    box-shadow: none;
-    font-family: "JetBrainsMono Nerd Font", sans-serif;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+    font-weight: bold;
+    min-height: 23px;
 }
 
-window {
-    background-color: rgba(36,20,15,0.78);
+/* Full-length bar */
+window#waybar {
+    background: alpha(@background, 0.8);
+    color: @foreground;
 }
 
-button {
-    border-radius: 14px;
-    border: 2px solid #74635e;
-
-    background-color: #24140f;
-    color: #c8c4c3;
-
-    margin: 14px;
-    min-width: 180px;
-    min-height: 180px;
-
-    background-repeat: no-repeat;
-    background-position: center 42px;
-    background-size: 64px;
-
-    transition: 200ms ease;
+/* Tooltips */
+tooltip {
+    background: @background;
+    border: 1px solid @color6;
+    border-radius: 6px;
 }
 
-button:hover,
-button:focus,
-button:active {
-    background-color: #A0674C;
-    border-color: #C89964;
-    color: #24140f;
+tooltip label {
+    color: @foreground;
 }
 
-#lock {
-    background-image: image(url("/usr/share/wlogout/assets/lock.svg"));
+/* Workspace */
+#workspaces {
+    margin-left: 8px;
 }
 
-#logout {
-    background-image: image(url("/usr/share/wlogout/assets/logout.svg"));
+#workspaces button {
+    color: @color6;
+    background: transparent;
+    border: none;
+    padding: 0 8px;
+    transition: all 0.2s ease;
 }
 
-#suspend {
-    background-image: image(url("/usr/share/wlogout/assets/suspend.svg"));
+#workspaces button:hover {
+    color: @color4;
+    background: transparent;
+    
 }
 
-#hibernate {
-    background-image: image(url("/usr/share/wlogout/assets/hibernate.svg"));
+#workspaces button.active {
+    color: @color1;
 }
 
-#shutdown {
-    background-image: image(url("/usr/share/wlogout/assets/shutdown.svg"));
+#workspaces button.urgent {
+    color: @color9;
 }
 
-#reboot {
-    background-image: image(url("/usr/share/wlogout/assets/reboot.svg"));
+/* Modules */
+#clock,
+#battery,
+#network,
+#bluetooth,
+#pulseaudio,
+#tray,
+#backlight {
+    margin: 0 8px;
+    color: @color6;
+}
+
+/* Battery states */
+#battery.warning {
+    color: @color6;
+}
+
+#battery.critical {
+    color: @color2;
+}
+
+#battery.charging {
+    color: green;
+}
+
+/* Network */
+#network.disconnected {
+    color: @color9;
+}
+
+/* Bluetooth */
+#bluetooth.disabled,
+#bluetooth.off {
+    color: @color2;
+}
+
+/* Audio */
+#pulseaudio.muted {
+    color: @color6;
+}
+
+/* Tray */
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+#custom-sep {
+    color: @color8;      /* separator color */
+    padding: 0 6px;
+}
+#custom-media {
+    color: @color6;
+}
+#window {
+    padding: 0 12px;
+    font-weight: bold;
+    color: @color6;
+}
+#custom-weather {
+    color: @color6;
+    padding: 0 12px;
+    font-weight: bold;
+    
 }

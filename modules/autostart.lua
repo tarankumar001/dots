@@ -4,6 +4,7 @@
 
 hl.on("hyprland.start", function()
     -- Secret service (for Chromium-based browsers)
+    hl.exec_cmd("wal -R")
     
 
     -- Status bar
@@ -11,7 +12,7 @@ hl.on("hyprland.start", function()
 
     -- Notification daemon
     -- hl.exec_cmd("swaync")
-
+    hl.exec_cmd("dunst")
     -- Wallpaper daemon
     hl.exec_cmd("awww-daemon")
 

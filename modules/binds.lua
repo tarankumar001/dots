@@ -37,15 +37,15 @@ hl.bind("SUPER + code:21",         hl.dsp.window.resize({ x =  50, y = 0, relati
 hl.bind("SUPER + SHIFT + code:20", hl.dsp.window.resize({ x = 0, y = -50, relative = true }), { repeating = true, description = "Shrink height" })
 hl.bind("SUPER + SHIFT + code:21", hl.dsp.window.resize({ x = 0, y =  50, relative = true }), { repeating = true, description = "Expand height" })
 
--- Screenshots (Hyprshot + Satty)
+-- HyprQuickFrame
 hl.bind("Print",
-    hl.dsp.exec_cmd("hyprshot -m region --raw | satty --filename -"))
+    hl.dsp.exec_cmd("quickshell -c HyprQuickFrame -n"))
 
 hl.bind("SHIFT + Print",
-    hl.dsp.exec_cmd("hyprshot -m window --raw | satty --filename -"))
+    hl.dsp.exec_cmd("env HQF_MODE=window quickshell -c HyprQuickFrame -n"))
 
 hl.bind("CTRL + Print",
-    hl.dsp.exec_cmd("hyprshot -m output --raw | satty --filename -"))
+    hl.dsp.exec_cmd("env HQF_ACTION=temp quickshell -c HyprQuickFrame -n"))
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
